@@ -18,24 +18,24 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let memo = self.memo{
-            textView.text = memo
+        if let memo = self.memo{ //MemoTableViewControllerから渡ってきた行の中身をmemoに代入
+            textView.text = memo //上記をtextView内に表示
         }
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        if presentingViewController is UINavigationController{
-            self.dismiss(animated: true, completion: nil)
+    @IBAction func cancel(_ sender: Any) { //cancelボタンを押した場合の挙動
+        if presentingViewController is UINavigationController{ 
+            self.dismiss(animated: true, completion: nil) //modalにて渡ってきた場合に前画面に戻る
         }else{
-            navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true) //navigationControllerで渡ってきた場合前に戻る
         }
         
     }
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //saveButtonを押した時の挙動
         guard let button = sender as? UIBarButtonItem, button == saveButton else { //buttonによる遷移の管理
             return //他のボタンだと遷移しない
         }
-        self.memo = self.textView.text ?? ""
+        self.memo = self.textView.text ?? "" //saveButtonの挙動時にtextViewの中身をMemoTableViewControllerに渡す
     }
 }
