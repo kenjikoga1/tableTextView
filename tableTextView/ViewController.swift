@@ -31,7 +31,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         
     }
-    // MARK: - Navigation
+    
+    @IBAction func save(_ sender: Any) {
+        performSegue(withIdentifier: "editMemo", sender: nil)
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.memo = self.textView.text
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //saveButtonを押した時の挙動
         guard let button = sender as? UIBarButtonItem, button == saveButton else { //buttonによる遷移の管理
             return //他のボタンだと遷移しない

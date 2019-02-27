@@ -82,7 +82,12 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="LGV-hM-vzk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="c9A-CD-4ty"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="c9A-CD-4ty">
+                            <connections>
+                                <action selector="save:" destination="BYZ-38-t0r" id="4sM-8Y-EJl"/>
+                                <segue destination="Bd1-SF-r2y" kind="unwind" unwindAction="unwindToMemoListWithSender:" id="VUT-q3-Tcj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="saveButton" destination="c9A-CD-4ty" id="daY-21-tNz"/>
@@ -90,6 +95,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Bd1-SF-r2y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1560.8" y="133.5832083958021"/>
         </scene>
